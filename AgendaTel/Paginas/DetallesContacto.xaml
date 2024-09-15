@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgendaTel.Paginas.DetallesContacto"
+             Title="Contact Details">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Editar"
+                     Clicked="ToolbarItem_Clicked" />
+        <ToolbarItem Text="Eliminar"
+
+                     Clicked="ToolbarItem_Clicked_1" />
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="Auto,Auto,Auto,*">
+
+
+
+
+
+        <VerticalStackLayout Grid.Row="1"
+                             Spacing="16"
+                             Padding="24"
+                             HorizontalOptions="Center">
+            <Frame CornerRadius="75"
+                   HeightRequest="150"
+                   WidthRequest="150"
+                   Padding="0"
+                   IsClippedToBounds="True">
+                <Image x:Name="ProfileImage"
+                       Aspect="AspectFill" />
+            </Frame>
+
+
+            <HorizontalStackLayout Spacing="16"
+                                   HorizontalOptions="Center">
+                <ImageButton Source="camera.png"
+                             HeightRequest="40"
+                             WidthRequest="40" />
+                <ImageButton Source="gallery.png"
+                             HeightRequest="40"
+                             WidthRequest="40" />
+            </HorizontalStackLayout>
+            <Label Text="{Binding Nombre}"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+            <Label Text="{Binding Ocupacion}"
+                   FontSize="16"
+                   TextColor="Gray"
+                   HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+
+        <Frame Grid.Row="2"
+               BackgroundColor="Transparent"
+               BorderColor="LightGray"
+               Margin="16,0">
+            <HorizontalStackLayout HorizontalOptions="Center"
+                                   Spacing="24">
+                <ImageButton Source="phone.png"
+                             HeightRequest="48"
+                             Clicked="ImageButton_Clicked"
+                             WidthRequest="48"
+                             BackgroundColor="Transparent" />
+                <ImageButton Source="message.png"
+                             HeightRequest="48"
+                             Clicked="ImageButton_Clicked_1"
+                             WidthRequest="48"
+                             BackgroundColor="Transparent" />
+
+            </HorizontalStackLayout>
+        </Frame>
+
+
+        <ScrollView Grid.Row="3">
+            <VerticalStackLayout Spacing="16"
+                                 Padding="16">
+                <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#2D2D2D}"
+                       CornerRadius="8">
+                    <Grid ColumnDefinitions="Auto,*"
+                          ColumnSpacing="16">
+                        <Image Grid.Column="0"
+                               Source="phone_icon.png"
+                               HeightRequest="24"
+                               WidthRequest="24" />
+                        <Label Grid.Column="1"
+                               Text="{Binding NumeroTel}"
+                               VerticalOptions="Center" />
+                    </Grid>
+                </Frame>
+                <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#2D2D2D}"
+                       CornerRadius="8">
+                    <Grid ColumnDefinitions="Auto,*"
+                          ColumnSpacing="16">
+                        <Image Grid.Column="0"
+                               Source="address_icon.png"
+                               HeightRequest="24"
+                               WidthRequest="24" />
+                        <Label Grid.Column="1"
+                               Text="{Binding Direccion}"
+                               VerticalOptions="Center" />
+                    </Grid>
+                </Frame>
+                <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#2D2D2D}"
+                       CornerRadius="8">
+                    <Grid ColumnDefinitions="Auto,*"
+                          ColumnSpacing="16">
+                        <Image Grid.Column="0"
+                               Source="email_icon.png"
+                               HeightRequest="24"
+                               WidthRequest="24" />
+                        <Label Grid.Column="1"
+                               Text="{Binding Email}"
+                               VerticalOptions="Center" />
+                    </Grid>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgendaTel.Paginas.EditarContacto"
+             Title="Editar Contacto">
+
+    <VerticalStackLayout HorizontalOptions="CenterAndExpand" WidthRequest="400" VerticalOptions="Center" Margin="20">
+
+        <Entry x:Name="nombreEntry"
+               Text="{Binding Nombre}"
+               FontSize="18"
+
+               Placeholder="Name" />
+        <Label Text="Nombre" FontSize="12" />
+
+        <Entry x:Name="ocupacionEntry"
+               FontSize="18"
+               Text="{Binding Ocupacion}"
+               Placeholder="Occupation" />
+        <Label Text="Ocupacion"
+               FontSize="12" />
+
+        <Entry x:Name="numeroEntry"
+               FontSize="18"
+               Text="{Binding NumeroTel}"
+               Placeholder="Phone Number" />
+        <Label Text="Numero tel"
+               FontSize="12" />
+        <Entry x:Name="direccionEntry"
+               FontSize="18"
+               Text="{Binding Direccion}"
+               Placeholder="Address" />
+        <Label Text="Direccion"
+               FontSize="12" />
+
+        <Entry x:Name="emailEntry"
+               FontSize="18"
+               Text="{Binding Email}"
+               Placeholder="Email" />
+        <Label Text="Email" FontSize="12" />
+
+
+        <Button Text="Actualizar" Margin="20" Clicked="Button_Clicked" />
+
+    </VerticalStackLayout>
+
+
+</ContentPage>

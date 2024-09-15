@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgendaTel.Paginas.AgregarContacto"
+             Title="Agregar Contacto">
+    <ScrollView>
+        <VerticalStackLayout Spacing="20"
+                             Padding="20">
+            <Label Text="Nuevo Contacto"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Frame BorderColor="{StaticResource Primary}"
+                   Padding="10"
+                   Margin="0,10,0,0">
+                <VerticalStackLayout Spacing="15">
+                    <Entry x:Name="nombreEntry"
+                           Placeholder="Nombre"
+                           PlaceholderColor="Gray"
+                           TextColor="Black" />
+
+                    <Entry x:Name="ocupacionEntry"
+                           Placeholder="Ocupación"
+                           PlaceholderColor="Gray"
+                           TextColor="Black" />
+
+                    <Entry x:Name="telefonoEntry"
+                           Placeholder="Número de Teléfono"
+                           Keyboard="Telephone"
+                           PlaceholderColor="Gray"
+                           TextColor="Black" />
+
+                    <Entry x:Name="direccionEntry"
+                           Placeholder="Dirección"
+                           PlaceholderColor="Gray"
+                           TextColor="Black" />
+
+                    <Entry x:Name="correoEntry"
+                           Placeholder="Correo Electrónico"
+                           Keyboard="Email"
+                           PlaceholderColor="Gray"
+                           TextColor="Black" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Agregar Contacto"
+                    Clicked="Button_Clicked"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="5"
+                    HeightRequest="50"
+                    Margin="0,20,0,0" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

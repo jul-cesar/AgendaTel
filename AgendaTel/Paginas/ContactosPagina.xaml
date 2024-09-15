@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgendaTel.Paginas.ContactosPagina"
+             NavigationPage.HasNavigationBar="False"
+             Title="Agenda Telefónica">
+
+    <Grid RowDefinitions="Auto,Auto,*,Auto">
+        <Grid BackgroundColor="{StaticResource Primary}"
+              Padding="20,30,20,20">
+            <Label Text="Agenda Telefónica"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center" />
+        </Grid>
+
+        <SearchBar Grid.Row="1"
+                   Placeholder="Buscar contactos"
+                   Margin="10,5"
+                   x:Name="searchBar" />
+
+        <CollectionView Grid.Row="2"
+                        x:Name="contactosView"
+                        SelectionMode="Single"
+                        SelectionChanged="contactosView_SelectionChanged"
+                        EmptyView="No hay contactos"
+                        Margin="10,0,10,10">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <Grid ColumnDefinitions="Auto,*">
+                        <Frame Grid.Column="0"
+                               CornerRadius="25"
+                               IsClippedToBounds="True"
+                               Padding="0"
+                               WidthRequest="50"
+                               HeightRequest="50">
+                            <Image Aspect="AspectFill"
+                                   Source="{Binding Image}" />
+                        </Frame>
+                        <VerticalStackLayout Grid.Column="1"
+                                             VerticalOptions="Center"
+                                             Margin="15,0,0,0">
+                            <Label Text="{Binding Nombre}"
+                                   FontAttributes="Bold" />
+                            <Label Text="{Binding Telefono}"
+                                   TextColor="Gray"
+                                   FontSize="Small" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Grid.Row="3"
+                Text="+"
+                FontSize="30"
+                FontAttributes="Bold"
+                CornerRadius="30"
+                WidthRequest="60"
+                HeightRequest="60"
+                Margin="0,0,20,20"
+                VerticalOptions="End"
+                HorizontalOptions="End"
+                BackgroundColor="{StaticResource Primary}"
+                TextColor="White"
+                Clicked="addContactButton_Clicked" />
+    </Grid>
+</ContentPage>
