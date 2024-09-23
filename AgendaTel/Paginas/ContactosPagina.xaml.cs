@@ -22,12 +22,31 @@ public partial class ContactosPagina : ContentPage
             var contact = e.CurrentSelection.FirstOrDefault() as Contacto;
             if (contact != null)
             {
-                // Desactiva la selección si no quieres que el contacto permanezca resaltado
                 contactosView.SelectedItem = null;
 
-                // Navega a la página de detalles del contacto seleccionado
                 await Navigation.PushAsync(new DetallesContacto(contact));
             }
         }
     }
+
+    private void searchBar_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        var text = e.NewTextValue?.ToLower() ?? string.Empty;
+
+        if (string.IsNullOrEmpty(text))
+        {
+            contactosView.ItemsSource = App.Contactos;
+        }
+        else
+        {
+            var contactosFiltrados = App.Contactos
+                .Where(c => c.Nombre.ToLower().Contains(text))
+                .ToList();
+
+            contactosView.ItemsSource = contactosFiltrados;
+        }
+    }
+
+
+
 }

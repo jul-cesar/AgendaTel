@@ -4,14 +4,37 @@
              x:Class="AgendaTel.Paginas.EditarContacto"
              Title="Editar Contacto">
 
-    <VerticalStackLayout HorizontalOptions="CenterAndExpand" WidthRequest="400" VerticalOptions="Center" Margin="20">
+    <VerticalStackLayout HorizontalOptions="CenterAndExpand"
+                         WidthRequest="400"
+                         VerticalOptions="Center">
 
+
+        <Frame CornerRadius="75"
+               HeightRequest="150"
+               WidthRequest="150"
+               Padding="0"
+               IsClippedToBounds="True">
+            <Image x:Name="ProfileImage"
+                   Source="{Binding Image}"
+                   Aspect="AspectFill" />
+        </Frame>
+        <HorizontalStackLayout Spacing="16"
+                               HorizontalOptions="Center">
+            <ImageButton Source="camera.png"
+                         HeightRequest="40"
+                         Clicked="ImageButton_Clicked_2"
+                         WidthRequest="40" />
+            <ImageButton Source="gallery.png"
+                         Clicked="ImageButton_Clicked_3"
+                         HeightRequest="40"
+                         WidthRequest="40" />
+        </HorizontalStackLayout>
         <Entry x:Name="nombreEntry"
                Text="{Binding Nombre}"
                FontSize="18"
-
                Placeholder="Name" />
-        <Label Text="Nombre" FontSize="12" />
+        <Label Text="Nombre"
+               FontSize="12" />
 
         <Entry x:Name="ocupacionEntry"
                FontSize="18"
@@ -37,10 +60,13 @@
                FontSize="18"
                Text="{Binding Email}"
                Placeholder="Email" />
-        <Label Text="Email" FontSize="12" />
+        <Label Text="Email"
+               FontSize="12" />
 
 
-        <Button Text="Actualizar" Margin="20" Clicked="Button_Clicked" />
+        <Button Text="Actualizar"
+                Margin="20"
+                Clicked="Button_Clicked" />
 
     </VerticalStackLayout>
 

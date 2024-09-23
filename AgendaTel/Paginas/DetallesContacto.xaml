@@ -2,13 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AgendaTel.Paginas.DetallesContacto"
+             NavigationPage.HasBackButton="False"
              Title="Contact Details">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Editar"
                      Clicked="ToolbarItem_Clicked" />
         <ToolbarItem Text="Eliminar"
-
                      Clicked="ToolbarItem_Clicked_1" />
     </ContentPage.ToolbarItems>
 
@@ -28,19 +28,13 @@
                    Padding="0"
                    IsClippedToBounds="True">
                 <Image x:Name="ProfileImage"
+                       Source="{Binding Image}"
                        Aspect="AspectFill" />
             </Frame>
 
 
-            <HorizontalStackLayout Spacing="16"
-                                   HorizontalOptions="Center">
-                <ImageButton Source="camera.png"
-                             HeightRequest="40"
-                             WidthRequest="40" />
-                <ImageButton Source="gallery.png"
-                             HeightRequest="40"
-                             WidthRequest="40" />
-            </HorizontalStackLayout>
+
+
             <Label Text="{Binding Nombre}"
                    FontSize="24"
                    FontAttributes="Bold"
@@ -115,6 +109,8 @@
                                VerticalOptions="Center" />
                     </Grid>
                 </Frame>
+
+
             </VerticalStackLayout>
         </ScrollView>
     </Grid>

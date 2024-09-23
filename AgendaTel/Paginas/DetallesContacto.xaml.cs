@@ -48,6 +48,8 @@ public partial class DetallesContacto : ContentPage
         }
     }
 
+
+
     private async void ImageButton_Clicked_1(object sender, EventArgs e)
     {
         try
@@ -83,11 +85,17 @@ public partial class DetallesContacto : ContentPage
 
     private async void ToolbarItem_Clicked_1(object sender, EventArgs e)
     {
-        var contactoAEliminar = App.Contactos.FirstOrDefault(x => x.Nombre == Contacto.Nombre);
+        var ask = await DisplayAlert("Eliminar contacto", "Deseas eliminar este contacto contacto?", "Si", "No");
 
-        App.Contactos.Remove(contactoAEliminar);
+        if (ask == true)
+        {
+            var contactoAEliminar = App.Contactos.FirstOrDefault(x => x.Nombre == Contacto.Nombre);
 
-        await Navigation.PushAsync(new ContactosPagina());
+            App.Contactos.Remove(contactoAEliminar);
+
+            await Navigation.PushAsync(new ContactosPagina());
+        }
 
     }
+
 }
